@@ -17,13 +17,16 @@ Ratings are made on a 5-star scale, with half-star increments (0.5 stars - 5.0 s
 
 ![Work Flow](img/counts_hist.png)
 
+![Work Flow](img/distribution_of_user_ratings.png)
+
+
 ## Baseline Recommender vs. Surprise SVD Recommender
 
-model error and percentage improvement table
+Model error & percentage improvement table
 
 ![Work Flow](img/error_table.png)
 
-violin charts
+Distribution of rating predictions
 
 ![Work Flow](img/violin_means.png)
 
@@ -31,28 +34,48 @@ violin charts
 
 ## Looking At The Predictions
 
-movie titles SVD recommendations
+Movie Titles Baseline recommendations  
 
+![Work Flow](img/recom1.png)
 
+![Work Flow](img/recom2.png)
 
+**User 200 actual Top10 Movies**  
+They recorded 253 movie ratings  
 
+Matrix, The (1999)  
+Truman Show, The (1998)  
+Back to the Future (1985)  
+Game, The (1997)  
+Lord of War (2005)  
+Larry Crowne (2011)  
+Erin Brockovich (2000)  
+Memento (2000)  
+Enemy at the Gates (2001)  
+Mexican, The (2001)  
 
+User 200 Recommendations  
+
+|   movieId | title                                                      | genres               |
+|----------:|:-----------------------------------------------------------|:---------------------|
+|      3414 | Love Is a Many-Splendored Thing (1955)                     | Drama|Romance|War    |
+|     73290 | Hachiko: A Dog's Story (a.k.a. Hachi: A Dog's Tale) (2009) | Drama                |
+|      8530 | Dear Frankie (2004)                                        | Drama|Romance        |
+|     90061 | Myth of the American Sleepover, The (2010)                 | Comedy|Drama|Romance |
+|      4755 | Wish Upon a Star (1996)                                    | Comedy               |
+|      8535 | De-Lovely (2004)                                           | Drama|Musical        |
+|     59684 | Lake of Fire (2006)                                        | Documentary          |
+|     65037 | Ben X (2007)                                               | Drama                |
+|     76173 | Micmacs (Micmacs à tire-larigot) (2009)                    | Comedy|Crime         |
+|       766 | I Shot Andy Warhol (1996)                                  | Drama                |
+
+User 200 NMF/ALS Recs:  
+['Art of War, The (2000)', 'King Is Alive, The (2000)', 'Maelström (2000)', 'Journey, The (El viaje) (1992)', 'Ice Princess (2005)', 'Family Stone, The (2005)', 'Flicka (2006)', 'Secretariat (2010)', 'Innocence (2000)', 'I Know That Voice (2013)']
 
 ## Conclusion
 
+### ALS model on EC2 trains and tests 27,000,000 ratings in 1minute 8seconds  
+
 Our new recommender is THE BEST. Let's use it!
 
-    
-Helpful hints
-------------------
 
-  * A challenge with the Spark solution can be to implement a *mean of means* baseline
-  * Make sure you show an example of a prediction
-  * **The numeric results are not as important here as how well you communicate what you have done**  
-  * Finally, the 'bosses' are not real keen thinking too hard about
-    RMSE or MAE.  You might be able to explain it to them, but if you
-    report it as percent improvement over mean-of means they are more
-    likely to listen.
-    
-We would also like you to include some discussion about how you would
-move from prototype to production.
