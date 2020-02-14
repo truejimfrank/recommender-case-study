@@ -17,13 +17,16 @@ Ratings are made on a 5-star scale, with half-star increments (0.5 stars - 5.0 s
 
 ![Work Flow](img/counts_hist.png)
 
+![Work Flow](img/distribution_of_user_ratings.png)
+
+
 ## Baseline Recommender vs. Surprise SVD Recommender
 
-model error and percentage improvement table
+Model error & percentage improvement table
 
 ![Work Flow](img/error_table.png)
 
-violin charts
+Distribution of rating predictions
 
 ![Work Flow](img/violin_means.png)
 
@@ -33,7 +36,9 @@ violin charts
 
 movie titles SVD recommendations
 
+![Work Flow](img/recom1.png)
 
+![Work Flow](img/recom2.png)
 
 
 
