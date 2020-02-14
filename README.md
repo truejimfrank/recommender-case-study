@@ -34,7 +34,7 @@ Distribution of rating predictions
 
 ## Looking At The Predictions
 
-movie titles SVD recommendations
+Movie Titles Baseline recommendations  
 
 ![Work Flow](img/recom1.png)
 
