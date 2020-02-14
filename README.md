@@ -41,6 +41,7 @@ Movie Titles Baseline recommendations
 ![Work Flow](img/recom2.png)
 
 **User 200 actual Top10 Movies**  
+They recorded 253 movie ratings  
 
 Matrix, The (1999)  
 Truman Show, The (1998)  
