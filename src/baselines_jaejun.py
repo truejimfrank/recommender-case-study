@@ -93,6 +93,7 @@ if __name__ == "__main__":
     print("\nGlobal Mean...")
     algo = GlobalMean()
     result_grobalmean = cross_validate(algo, data, measures=['rmse'])
+    print(algo.the_mean)
     print(f"Global Mean: {np.mean(result_grobalmean['test_rmse'])}")
 
     print("\nMeanOfMeans...")
@@ -101,4 +102,3 @@ if __name__ == "__main__":
     result_meanofmean = cross_validate(algo, data, measures=['rmse'])
     print(f"MeanofMeans: {np.mean(result_meanofmean['test_rmse'])}")
 
-    
