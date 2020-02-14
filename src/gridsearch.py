@@ -21,16 +21,29 @@ svd_grid = {'n_epochs': [5, 10, 20],
               'reg_all': [0.2, 0.4, 0.6],
               'init_mean': [0, 3.5]}
 
-gs = GridSearchCV(SVD, svd_grid, measures=['rmse', 'mae'], cv=5, n_jobs=-2, joblib_verbose=True)
+als_grid = {'n_epochs': [5, 10, 20, 50],
+            'n_factors': [1, 5, 10, 20, 50, 100],
+            'biased': [True, False]}
 
-gs.fit(data)
+gs_svd = GridSearchCV(SVD, svd_grid, measures=['rmse', 'mae'], cv=5, n_jobs=-2, joblib_verbose=True)
+
+gs_nmf = GridSearchCV(NMF, als_grid, measures=['rmse', 'mae'], cv=5, n_jobs=-2, joblib_verbose=5)
+
+svd = SVD(n_epochs=20, n_factors=50, lr_all=0.01, reg_all=0.02, init_mean=0)
+
+nmf = NMF(n_epochs=50, n_factors=1, biased=True)
+
 
 if __name__ == "__main__":    
 
-    print(gs.best_score['rmse'])
-    print(gs.best_params['rmse'])
+    gs_nmf.fit(data)
+    print(gs_nmf.best_score['rmse'])
+    print(gs_nmf.best_params['rmse'])
 
-    # algo = NMF()
+    gs_svd.fit(data)
+    print(gs_svd.best_score['rmse'])
+    print(gs_svd.best_params['rmse'])
+
 
     # cross_validate(algo, data, verbose=True)
 

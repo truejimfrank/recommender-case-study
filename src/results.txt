@@ -31,3 +31,20 @@ RMSE (testset)    0.9454  0.9451  0.9398  0.9445  0.9544  0.9459  0.0047
 MAE (testset)     0.7269  0.7286  0.7231  0.7232  0.7319  0.7267  0.0033  
 Fit time          7.34    7.27    7.55    7.32    7.32    7.36    0.10    
 Test time         0.29    0.29    0.21    0.26    0.25    0.26    0.03 
+
+[Parallel(n_jobs=-2)]: Using backend LokyBackend with 7 concurrent workers.
+[Parallel(n_jobs=-2)]: Done  36 tasks      | elapsed:  1.4min
+[Parallel(n_jobs=-2)]: Done 186 tasks      | elapsed:  7.4min
+[Parallel(n_jobs=-2)]: Done 436 tasks      | elapsed: 17.3min
+[Parallel(n_jobs=-2)]: Done 786 tasks      | elapsed: 31.1min
+[Parallel(n_jobs=-2)]: Done 1236 tasks      | elapsed: 49.7min
+[Parallel(n_jobs=-2)]: Done 1350 out of 1350 | elapsed: 54.8min finished
+0.8918449386314405
+{'n_epochs': 20, 'n_factors': 50, 'lr_all': 0.01, 'reg_all': 0.2, 'init_mean': 0}
+
+[Parallel(n_jobs=-2)]: Using backend LokyBackend with 15 concurrent workers.
+[Parallel(n_jobs=-2)]: Done  42 tasks      | elapsed:  1.3min
+[Parallel(n_jobs=-2)]: Done 132 tasks      | elapsed:  3.9min
+[Parallel(n_jobs=-2)]: Done 240 out of 240 | elapsed:  7.7min finished
+0.8893864271449378
+{'n_epochs': 50, 'n_factors': 1, 'biased': True}
