@@ -30,6 +30,18 @@
 |     89904 | The Artist (2011)                                                                           | Comedy|Drama|Romance |
 
 
+|   movieId | title                                                      | genres               |
+|----------:|:-----------------------------------------------------------|:---------------------|
+|      3414 | Love Is a Many-Splendored Thing (1955)                     | Drama|Romance|War    |
+|     73290 | Hachiko: A Dog's Story (a.k.a. Hachi: A Dog's Tale) (2009) | Drama                |
+|      8530 | Dear Frankie (2004)                                        | Drama|Romance        |
+|     90061 | Myth of the American Sleepover, The (2010)                 | Comedy|Drama|Romance |
+|      4755 | Wish Upon a Star (1996)                                    | Comedy               |
+|      8535 | De-Lovely (2004)                                           | Drama|Musical        |
+|     59684 | Lake of Fire (2006)                                        | Documentary          |
+|     65037 | Ben X (2007)                                               | Drama                |
+|     76173 | Micmacs (Micmacs à tire-larigot) (2009)                    | Comedy|Crime         |
+|       766 | I Shot Andy Warhol (1996)                                  | Drama                |
 
 
 
