@@ -74,6 +74,8 @@ User 200 NMF/ALS Recs:
 
 ## Conclusion
 
+### ALS model on EC2 trains and tests 27,000,000 ratings in 1minute 8seconds  
+
 Our new recommender is THE BEST. Let's use it!
 
 
