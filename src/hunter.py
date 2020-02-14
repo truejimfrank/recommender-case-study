@@ -2,8 +2,8 @@ import sys
 import numpy as np
 import pandas as pd
 from collections import defaultdict
-from surprise import Dataset, SVD, accuracy, Reader
-from surprise.model_selection import train_test_split
+from surprise import Dataset, SVD, accuracy, Reader, NMF
+from surprise.model_selection import train_test_split, GridSearchCV
 from surprise.model_selection.validation import cross_validate
 from baselines import GlobalMean, MeanofMeans
 
@@ -15,64 +15,28 @@ reader = Reader(name=None,
 
 data = Dataset.load_from_file('../data/movies/ratings.csv', reader=reader)
 
-def get_top_n(predictions, n=5):
+svd_grid = {'n_epochs': [5, 10, 20],
+              'n_factors': [1, 5, 10, 20, 50],
+              'lr_all': [0.002, 0.005, 0.01],
+              'reg_all': [0.2, 0.4, 0.6],
+              'init_mean': [0, 3.5]}
 
-    # First map the predictions to each user.
-    top_n = defaultdict(list)
-    for uid, iid, true_r, est, _ in predictions:
-        top_n[uid].append((iid, est))
+gs = GridSearchCV(SVD, svd_grid, measures=['rmse', 'mae'], cv=5, n_jobs=-2, joblib_verbose=True)
 
-    # Then sort the predictions for each user and retrieve the k highest ones.
-    for uid, user_ratings in top_n.items():
-        user_ratings.sort(key=lambda x: x[1], reverse=True)
-        top_n[uid] = user_ratings[:n]
+gs.fit(data)
 
-    return top_n
+if __name__ == "__main__":    
 
+    print(gs.best_score['rmse'])
+    print(gs.best_params['rmse'])
 
-def recs_dict(top_n, name_df):
-    recs_dict = dict()
-    for uid, user_ratings in top_n.items():
-        # print(uid, [name_df.loc[int(iid)]['title'] for (iid, _) in user_ratings])
-        recs_dict[int(uid)] = [name_df.loc[int(iid)]['title'] for (iid, _) in user_ratings]
-    return recs_dict
+    # algo = NMF()
 
+    # cross_validate(algo, data, verbose=True)
 
-if __name__ == "__main__":
     
-    name_df = pd.read_csv('../data/movies/movies.csv', header=0, index_col=0)
-    # # cross_validate(algo, data, verbose=True)
-    
-    trainset = data.build_full_trainset()
-    testset = trainset.build_anti_testset()
-    
-    user = 600
-
-    # algo = SVD()
-    # algo.fit(trainset)
-    # predictions = algo.test(testset)
-    
-    # top_n = get_top_n(predictions, n=10)
-    # svd_dict = recs_dict(top_n, name_df)
-    # print(recs_dict[user])
-
-    # algo = GlobalMean()
-    # algo.fit(trainset)
-    # predictions = algo.test(testset)
-    
-    # top_n = get_top_n(predictions, n=10)
-    # mean_dict = recs_dict(top_n, name_df)
-    # print(recs_dict[user])
-
-    algo = MeanofMeans()
-    algo.fit(trainset)
-    predictions = algo.test(testset)
-    
-    top_n = get_top_n(predictions, n=10)
-    mean_mean_dict = recs_dict(top_n, name_df)
-    print(recs_dict[user])
-
-
+    # trainset = data.build_full_trainset()
+    # testset = trainset.build_anti_testset()
 
     # trainset, testset = train_test_split(data, test_size=.25)
 
