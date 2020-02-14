@@ -40,6 +40,19 @@ Movie Titles Baseline recommendations
 
 ![Work Flow](img/recom2.png)
 
+User 200 actual Top10 Movies  
+
+2571            Matrix, The (1999)  
+1682       Truman Show, The (1998)  
+1270     Back to the Future (1985)  
+1625              Game, The (1997)  
+36529           Lord of War (2005)  
+87522          Larry Crowne (2011)  
+3408        Erin Brockovich (2000)  
+4226                Memento (2000)  
+4223     Enemy at the Gates (2001)  
+4161           Mexican, The (2001)  
+
 User 200 Recommendations  
 
 |   movieId | title                                                      | genres               |
