@@ -1,9 +1,16 @@
 import sys
 import numpy as np
+import pandas as pd 
+from surprise import SVD
+from surprise import accuracy
 from surprise import AlgoBase, Dataset
 from surprise.model_selection.validation import cross_validate
+from sklearn.metrics import pairwise_distances
+from scipy.spatial.distance import cosine, correlation
+import sys
+import pickle
 
-#MINE
+#MINE aka joshr
 
 class GlobalMean(AlgoBase):
     def __init__(self):
@@ -74,11 +81,39 @@ class MeanofMeans(AlgoBase):
 
 if __name__ == "__main__":
 
-    data = Dataset.load_builtin('ml-100k')
-    print("\nGlobal Mean...")
-    algo = GlobalMean()
-    cross_validate(algo, data)
+    # data = Dataset.load_builtin('ml-100k')
+    # print("\nGlobal Mean...")
+    # algo_global_mean = GlobalMean()
+    # cross_validate(algo_global_mean, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
 
-    print("\nMeanOfMeans...")
-    algo = MeanofMeans()
-    cross_validate(algo, data)
+    # print("\nMeanOfMeans...")
+    # algo_mean_means = MeanofMeans()
+    # cross_validate(algo_mean_means, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
+
+    # print("\nSVD...")
+    # algo_svd = SVD()
+    # #cross_validate(algo_svd, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
+
+    movies = pd.read_csv('/Users/ramozo_88/DSI/repos/recommender-case-study/data/movies/movies.csv')
+    df_ratings = pd.read_csv('/Users/ramozo_88/DSI/repos/recommender-case-study/data/movies/ratings.csv')
+    df_links = pd.read_csv('/Users/ramozo_88/DSI/repos/recommender-case-study/data/movies/links.csv')
+    df_tags = pd.read_csv('/Users/ramozo_88/DSI/repos/recommender-case-study/data/movies/tags.csv')
+    df_movies = movies.copy()
+    df_movies['genres'] = df_movies['genres'].str.replace('|',' ')
+    # ratings_f = df_ratings.groupby('userId').filter(lambda x: len(x) >= 55)
+    # movie_list_rating = ratings_f.movieId.unique().tolist()
+    #movies = df_movies[movies.movieId.isin(movie_list_rating)]
+    # Mapping_file = dict(zip(movies.title.tolist(), movies.movieId.tolist()))
+    # df_tags.drop(['timestamp'],1, inplace=True)
+    # ratings_f.drop(['timestamp'],1, inplace=True)
+    mixed = pd.merge(df_tags, df_movies, on='movieId', how='right')
+    print(mixed)
+    print(mixed.columns)
+    print(mixed.tag)
+    mixed.fillna("", inplace=True)
+    mixed = pd.DataFrame(mixed.groupby('movieId')['tag'].apply(
+                                          lambda x: "%s" % ' '.join(x)))
+    Final = pd.merge(movies, mixed, on='movieId', how='left')
+    Final ['metadata'] = Final[['tag', 'genres']].apply(
+                                          lambda x: ' '.join(x), axis = 1)
+    Final[['movieId','title','metadata']].head(3)
