@@ -1,0 +1,25 @@
+Global Mean...
+Evaluating RMSE, MAE of algorithm GlobalMean on 5 split(s).
+
+                  Fold 1  Fold 2  Fold 3  Fold 4  Fold 5  Mean    Std     
+RMSE (testset)    1.1180  1.1223  1.1280  1.1331  1.1268  1.1257  0.0052  
+MAE (testset)     0.9383  0.9415  0.9473  0.9511  0.9453  0.9447  0.0045  
+Fit time          0.05    0.07    0.06    0.06    0.05    0.06    0.01    
+Test time         0.17    0.14    0.13    0.12    0.12    0.14    0.02    
+
+MeanOfMeans...
+Evaluating RMSE, MAE of algorithm MeanofMeans on 5 split(s).
+
+                  Fold 1  Fold 2  Fold 3  Fold 4  Fold 5  Mean    Std     
+RMSE (testset)    1.0147  1.0133  1.0202  1.0301  1.0087  1.0174  0.0073  
+MAE (testset)     0.8318  0.8348  0.8390  0.8498  0.8316  0.8374  0.0068  
+Fit time          0.37    0.39    0.39    0.40    0.41    0.39    0.01    
+Test time         0.68    0.69    0.66    0.78    0.66    0.69    0.04
+
+Evaluating RMSE, MAE of algorithm SVD on 5 split(s).
+
+                  Fold 1  Fold 2  Fold 3  Fold 4  Fold 5  Mean    Std     
+RMSE (testset)    0.9334  0.9406  0.9437  0.9428  0.9257  0.9372  0.0068  
+MAE (testset)     0.7370  0.7420  0.7424  0.7441  0.7280  0.7387  0.0058  
+Fit time          7.54    7.75    7.44    7.64    7.69    7.61    0.11    
+Test time         0.28    0.28    0.34    0.30    0.30    0.30    0.02  
