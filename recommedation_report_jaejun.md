@@ -45,3 +45,15 @@
 
 
 
+|       |   userId |   movieId |   rating |   timestamp | title                                        | genres                             |
+|------:|---------:|----------:|---------:|------------:|:---------------------------------------------|:-----------------------------------|
+| 27591 |      200 |     36529 |      5   |  1437933015 | Lord of War (2005)                           | Action|Crime|Drama|Thriller|War    |
+| 27459 |      200 |      1270 |      5   |  1437932711 | Back to the Future (1985)                    | Adventure|Comedy|Sci-Fi            |
+| 27470 |      200 |      1625 |      5   |  1437933483 | Game, The (1997)                             | Drama|Mystery|Thriller             |
+| 27472 |      200 |      1682 |      5   |  1437933004 | Truman Show, The (1998)                      | Comedy|Drama|Sci-Fi                |
+| 27490 |      200 |      2571 |      5   |  1437932708 | Matrix, The (1999)                           | Action|Sci-Fi|Thriller             |
+| 27429 |      200 |       145 |      4.5 |  1437933154 | Bad Boys (1995)                              | Action|Comedy|Crime|Drama|Thriller |
+| 27620 |      200 |     56174 |      4.5 |  1437933411 | I Am Legend (2007)                           | Action|Horror|Sci-Fi|Thriller|IMAX |
+| 27571 |      200 |      8665 |      4.5 |  1437933321 | Bourne Supremacy, The (2004)                 | Action|Crime|Thriller              |
+| 27572 |      200 |      8874 |      4.5 |  1437933843 | Shaun of the Dead (2004)                     | Comedy|Horror                      |
+| 27585 |      200 |     33004 |      4.5 |  1437933281 | Hitchhiker's Guide to the Galaxy, The (2005) | Adventure|Comedy|Sci-Fi            |
